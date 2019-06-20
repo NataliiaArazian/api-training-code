@@ -1,0 +1,43 @@
+plugins {
+    id 'java'
+}
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+ext {
+    restAssuredVersion = '3.3.0'
+    testNgVersion = '6.13'
+}
+dependencies {
+    compile "io.rest-assured:rest-assured:$restAssuredVersion"
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.8'
+    compile group: 'com.github.javafaker', name: 'javafaker', version: '0.18'
+
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+    compile group: 'ch.qos.logback', name: 'logback-core', version: '1.2.3'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+    compile group: 'org.aeonbits.owner', name: 'owner', version: '1.0.10'
+
+    testCompile "org.testng:testng:$testNgVersion"
+}
+
+test {
+
+    useTestNG()
+
+    systemProperties System.getProperties()
+
+    testLogging {
+        events "PASSED", "FAILED", "SKIPPED"
+        showStandardStreams = true
+        exceptionFormat = 'full'
+    }
+
+    test.outputs.upToDateWhen {
+        false
+    }
+}
+
