@@ -1,14 +1,11 @@
 package com.socks.tests;
 
 import com.github.javafaker.Faker;
-import com.github.javafaker.File;
 import com.socks.api.ProjectConfig;
 import com.socks.api.payloads.UserPayload;
-import com.socks.api.responses.UserRegistrationResponse;
 import com.socks.api.services.UserApiService;
 import io.restassured.RestAssured;
 import org.aeonbits.owner.ConfigFactory;
-import org.apache.commons.lang3.RandomStringUtils;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
