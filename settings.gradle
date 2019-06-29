@@ -1,4 +1,6 @@
 rootProject.name = 'training'
 include 'api-test'
 include 'api-tests-swagger'
+include 'ui-test'
+findProject(':ui-test')?.name = 'ui'
 
